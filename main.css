@@ -7,3 +7,9 @@ md-sidenav{
 d-content{
   background-color: cadetblue;
 }
+.color-gray{
+  background-color: #bebebe;
+}
+body{
+  background-color: bisque;
+}
