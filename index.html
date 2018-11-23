@@ -19,7 +19,29 @@
     </md-button>
     <h1>toolbar</h1>
 
+    <md-menu layout-align="end end" ng-controller="testmenu">
+      <md-button class="md-raised color-aquao" 
+                 ng-click="openMenu($mdOpenMenu, $event)">
+        <md-icon ng-bind="'settings'"></md-icon>
+      </md-button>
+      <md-menu-content width="4">
 
+        <md-menu-item>
+          <!--清單1-->
+          <md-button></md-button>
+        </md-menu-item>
+        <md-menu-item>
+          <!--清單1-->
+          <md-button></md-button>
+        </md-menu-item>
+        <md-menu-item>
+          <!--清單1-->
+          <md-button></md-button>
+        </md-menu-item>
+       
+
+      </md-menu-content>
+    </md-menu>
   </md-toolbar>
 
   <div flex layout="row">
@@ -36,16 +58,10 @@
         <div flex="55">23</div>
       </div>
 
-
-
-
-
-
-
     </md-content>
 
     <div ng-controller="RBMenu">
-      <md-fab-speed-dial md-open="RBMenu.isOpen"  md-direction="up" class="md-raised md-fab-bottom-right md-fling">
+      <md-fab-speed-dial md-open="RBMenu.isOpen" md-direction="up" class="md-raised md-fab-bottom-right md-fling">
 
         <md-fab-trigger>
           <md-button class="md-accent md-fab" aria-label="menu">
@@ -54,11 +70,11 @@
         </md-fab-trigger>
 
         <md-fab-actions>
-          <md-button class="md-fab md-raised md-mini" aria-label="1"></md-button>
-        
-          <md-button class="md-fab md-raised md-mini" aria-label="2"></md-button>
-       
-          <md-button class="md-fab md-raised md-mini" aria-label="3"></md-button>
+          <md-button class="md-fab md-raised md-mini color-gray"></md-button>
+
+          <md-button class="md-fab md-raised md-mini color-gray"></md-button>
+
+          <md-button class="md-fab md-raised md-mini color-gray"></md-button>
         </md-fab-actions>
 
       </md-fab-speed-dial>
@@ -78,12 +94,23 @@
       app.controller("testHide", function ($scope, $mdSidenav) {
         $scope.onClick = function () {
           $mdSidenav('left').toggle();
+          console.log("left");
         };
+      });
+
+      app.controller("testmenu", function DemoCtrl($mdDialog) {
+        var originatorEv;
+        this.openMenu = function ($mdOpenMenu, ev) {
+          originatorEv = ev;
+          $mdOpenMenu(ev);
+          console.log("menu!!");
+        };
+        console.log("menu!!");
       });
 
       (function () {
         app.controller("RBMenu", function () {
-          this.isOpen = false; 
+          this.isOpen = false;
         });
       })();
 

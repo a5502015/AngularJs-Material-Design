@@ -4,11 +4,17 @@
 md-sidenav{
   background-color: chocolate;
 }
-md-content{
+d-content{
   background-color: cadetblue;
 }
 .color-gray{
   background-color: #bebebe;
+}
+.md-button.color-gray{
+  background-color: #bebebe;
+}
+.md-button.color-aquao{
+  background-color: #66b3ff;
 }
 body{
   background-color: bisque;
