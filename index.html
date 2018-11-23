@@ -6,29 +6,41 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.8/angular-material.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="./main.css">
   <title>Test AngularJs</title>
 </head>
 
 <body ng-app="myApp" ng-cloak ng-controller="testHide">
-  <md-toolbar>
-    <div class="md-toolbar-tools" layout="row">
-        
-        <md-button class="md-primary md-raised" ng-click="onClick()">menu</md-button>
-        <h1>toolbar</h1>
-    </div>
-    
+  <md-toolbar class="md-toolbar-tools" layout="row">
+
+    <md-button class="mycolor menu md-raised md-icon-button" ng-click="onClick()">
+      <md-icon ng-bind="'menu'"></md-icon>
+    </md-button>
+    <h1>toolbar</h1>
+
+
   </md-toolbar>
 
   <div flex layout="row">
     <md-sidenav ng-hide="isHide" md-component-id="left" class="md-sidenav-left">
-        md-sidenav
+      md-sidenav
+      <div layout="column">
+
+      </div>
     </md-sidenav>
 
-    <md-content class="color-gray">
-      <p>md-content</p>
-    </md-content>
+    <md-content flex id="content" class="color-gray">
+      <div layout="row" layout-xs="column">
+        <div flex="45">12</div>
+        <div flex="55">23</div>
+      </div>
   </div>
+  <md-button class="md-accent md-raised md-fab md-fab-bottom-right">
+    <md-icon ng-bind="'public'"></md-icon>
+  </md-button>
+  </md-content>
+
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-animate.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-aria.min.js"></script>
@@ -38,9 +50,9 @@
   <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.8/angular-material.min.js"></script>
 
   <script>
-    var app = angular.module("myApp",['ngMaterial']);
-    app.controller("testHide",function($scope,$mdSidenav){
-      $scope.onClick = function(){
+    var app = angular.module("myApp", ['ngMaterial']);
+    app.controller("testHide", function ($scope, $mdSidenav) {
+      $scope.onClick = function () {
         $mdSidenav('left').toggle();
       };
     });
