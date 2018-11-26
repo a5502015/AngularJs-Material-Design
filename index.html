@@ -13,22 +13,27 @@
 
 <body ng-app="myApp" ng-cloak ng-controller="testHide">
   <md-toolbar class="md-toolbar-tools" layout="row">
-
-    <md-button class="mycolor menu md-raised md-icon-button" ng-click="onClick()" aria-label="left">
-      <md-icon ng-bind="'menu'"></md-icon>
-    </md-button>
-    <h1>toolbar</h1>
+<div flex="7" layout = "column">
+  <md-button class="mycolor menu md-raised md-icon-button" ng-click="onClick()" aria-label="left">
+    <md-icon ng-bind="'menu'"></md-icon>
+  </md-button>
+  
+</div>
+    
+    <div  flex = "85">
+      <h1>toolbar</h1>
+    </div>
     <!--若是沒有幫controller取別名 會不知道要載入哪一個controller 那就要用$scope來節系資料-->
     <div ng-controller="testmenu as tm" layout-align="end end" ng-cloak>
-      <md-menu >
-        <md-button class="color-aquao" ng-click="tm.openMenu($mdOpenMenu, $event)" ng-cloak aria-label="menu">
+      <md-menu>                                         
+        <md-button class="color-aquao" ng-click="tm.openMenu($mdMenu, $event)" ng-cloak aria-label="menu">
           <md-icon ng-bind="'settings'"></md-icon>
         </md-button>
         <md-menu-content width="4">
 
           <md-menu-item>
             <!--清單1-->
-            <md-button  aria-label="B4">1</md-button>
+            <md-button aria-label="B4">1</md-button>
           </md-menu-item>
           <md-menu-item>
             <!--清單1-->
@@ -96,9 +101,9 @@
 
       app.controller("testmenu", function DemoCtrl($mdDialog) {
         var originatorEv;
-        this.openMenu = function ($mdOpenMenu, ev) {
+        this.openMenu = function ($mdMenu, ev) {
           originatorEv = ev;
-          $mdOpenMenu(ev);
+          $mdMenu.open(ev);
           console.log("menu!!");
         };
         console.log("testmenu");
@@ -111,14 +116,11 @@
         };
       });
 
-      
+      app.controller("RBMenu", function () {
+        //this.isOpen = false;
+        console.log("RMB");
+      });
 
-      
-        app.controller("RBMenu", function () {
-          //this.isOpen = false;
-          console.log("RMB");
-        });
-     
 
     </script>
 </body>
