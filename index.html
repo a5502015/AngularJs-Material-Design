@@ -33,11 +33,11 @@
 
           <md-menu-item>
             <!--清單1-->
-            <md-button aria-label="B4" ng-click="tm.testClick($event)">1</md-button>
+            <md-button aria-label="B4" ng-click="tm.testClick($event)">Dialog Test</md-button>
           </md-menu-item>
           <md-menu-item>
             <!--清單1-->
-            <md-button aria-label="B5">2</md-button>
+            <md-button aria-label="B5" ng-click="tm.testDialog($event)">Dialog Test2</md-button>
           </md-menu-item>
           <md-menu-item>
             <!--清單1-->
@@ -119,6 +119,21 @@
               .targetEvent(ev)
           );
 
+        };
+
+        this.testDialog = function (ev) {
+          var confirm = $mdDialog.prompt()
+            .title('彈出視窗測試 2')
+            .textContent('彈出視窗測試 2')
+            .placeholder('name')
+            .ariaLabel('name')
+            
+            .initialValue('')
+            .targetEvent(ev)
+            .required(true)
+            .ok('Okay!')
+            .cancel('I\'m batman');
+          $mdDialog.show(confirm)
         }
         console.log("testmenu");
       });
@@ -132,7 +147,7 @@
       });
 
       app.controller("RBMenu", function () {
-        //this.isOpen = false;
+        this.isOpen = false;
         console.log("RMB");
       });
 
