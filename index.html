@@ -18,9 +18,10 @@
       <md-icon ng-bind="'menu'"></md-icon>
     </md-button>
     <h1>toolbar</h1>
-    <div ng-controller="testmenu" layout-align="end end" ng-cloak>
+    <!--若是沒有幫controller取別名 會不知道要載入哪一個controller 那就要用$scope來節系資料-->
+    <div ng-controller="testmenu as tm" layout-align="end end" ng-cloak>
       <md-menu >
-        <md-button class="color-aquao" ng-click="testmenu.openMenu($mdOpenMenu, $event)" ng-cloak aria-label="menu">
+        <md-button class="color-aquao" ng-click="tm.openMenu($mdOpenMenu, $event)" ng-cloak aria-label="menu">
           <md-icon ng-bind="'settings'"></md-icon>
         </md-button>
         <md-menu-content width="4">
